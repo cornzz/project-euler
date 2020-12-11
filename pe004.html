@@ -1,0 +1,17 @@
+<script>
+let palindrome = 0;
+
+for (let x = 999; x >= 100; x--) {
+	for (let y = 999; y >= 100; y--) {
+		let z = String(x * y);
+
+		if (z === z.split("").reverse().join("")) {
+			if (parseInt(z) > palindrome) {
+				palindrome = parseInt(z);
+			}
+		}
+	}
+}
+
+console.log(palindrome);
+</script>

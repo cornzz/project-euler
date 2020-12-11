@@ -1,0 +1,28 @@
+<script>
+function d(n) {
+	let nSqrt = Math.sqrt(n);
+	let divisors = [1];
+	for (let i = 2; i <= nSqrt; i++) {
+		if (i === nSqrt) {
+			divisors.push(i);
+		} else if (!(n % i)) {
+			divisors.push(i, n / i);
+		}
+	}
+	return divisors.reduce((a, b) => a + b);
+}
+
+let amicable = [];
+
+for (let i = 1; i < 10000; i++) {
+	if (!amicable.includes(i)) {
+		let di = d(i);
+		let ddi = d(di);
+		if (i === ddi && i !== di) {
+			amicable.push(i, di);
+		}
+	}
+}
+
+console.log(amicable.reduce((a, b) => a + b));
+</script>

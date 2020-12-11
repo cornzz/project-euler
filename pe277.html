@@ -1,0 +1,36 @@
+<script>
+function applySequence(x) {
+	let sequence = 'UDDDUdddDDUDDddDdDddDDUDDdUUDd'.split('');
+
+	while (sequence.length > 0) {
+		let current = sequence.pop();
+		switch (current) {
+			case 'D':
+				x *= 3;
+				break;
+			case 'U':
+				x = (x * 3 - 2) / 4;
+				break;
+			case 'd':
+				x = (x * 3 + 1) / 2;
+				break;
+		}
+		if (!Number.isInteger(x)) {
+			return false;
+		}
+	}
+
+	return x;
+}
+
+console.time('Duration');
+for (let i = 1;; i += 2) {
+	let result = applySequence(i);
+	if (result > Math.pow(10, 15)) {
+		console.log(result);
+		break;
+	}
+}
+console.timeEnd('Duration');
+
+</script>

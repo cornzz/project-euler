@@ -1,0 +1,15 @@
+<script>
+let sumOfSquares = squareOfSum = 0;
+
+for (let x = 1; x <= 100; x++) {
+	sumOfSquares += Math.pow(x, 2);
+	squareOfSum += x;
+}
+squareOfSum *= squareOfSum;
+
+// let n = 100;
+// let squareOfSum = Math.pow(n*(n+1)/2), 2);
+// let sumOfSquares = n*(n+1)*(2*n+1)/6;
+
+console.log(squareOfSum - sumOfSquares);
+</script>

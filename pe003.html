@@ -1,0 +1,15 @@
+<script>
+	let x = 600851475143;
+	let i = 2;
+
+	while (i <= x) {
+		if (!(x % i)) {
+			x /= i;
+		} else {
+			i = (i === 2) ? 3 : i + 2;
+		}
+	}
+
+	console.log(i);
+
+</script>

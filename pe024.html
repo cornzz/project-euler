@@ -1,0 +1,24 @@
+<script>
+	let digits = '0123456789';
+
+	function getPerms(x) {
+		if (x.length === 1) {
+			return x;
+		}
+
+		let perms = [];
+		for (let i = 0; i < x.length; i++) {
+			let digit = x[i];
+			let remainingDigits = x.slice(0, i) + x.slice(i + 1, x.length);
+
+			for (let subPerm of getPerms(remainingDigits)) {
+				perms.push(digit + subPerm);
+			}
+		}
+		return perms;
+	}
+
+	let permutations = getPerms(digits).sort();
+
+	console.log(permutations[999999]);
+</script>

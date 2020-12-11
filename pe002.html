@@ -1,0 +1,14 @@
+<script>
+let x = 1, y = 2, evensum = 0;
+
+while (y < 4000000) {
+	if (!(y % 2)) {
+		evensum += y;
+	}
+	ynew = x + y;
+	x = y;
+	y = ynew;
+}
+
+console.log(evensum);
+</script>

@@ -1,0 +1,52 @@
+<script>
+let lengths = {1: 1};
+function calcChain(n) {
+	if (n in lengths) {
+		return lengths[n];
+	}
+	if (!(n % 2)) {
+		lengths[n] = calcChain(n / 2) + 1;
+	} else {
+		lengths[n] = calcChain((3 * n + 1) / 2) + 2;
+	}
+	return lengths[n];
+}
+
+// [start num, length]
+let longestChain = [0, 0];
+console.time('Duration');
+for (let i = 500000; i < 1000000; i++) {
+	let length = calcChain(i);
+	if (length > longestChain[1]) {
+		longestChain[0] = i;
+		longestChain[1] = length;
+	}
+}
+console.timeEnd('Duration');
+console.log(longestChain[0] + ': ' + longestChain[1]);
+
+
+// function getCollatzSeqLength(n) {
+// 	if (n === 1) {
+// 		return 1;
+// 	}
+// 	let i;
+// 	for (i = 1; n !== 1; i++) {
+// 		n = (!(n % 2)) ? n / 2 : 3 * n + 1;
+// 	}
+// 	return i;
+// }
+
+// // [start num, length]
+// let longestChain = [0, 0];
+// console.time('Duration');
+// for (let j = 2; j < 1000000; j++) {
+// 	let length = getCollatzSeqLength(j);
+// 	if (length > longestChain[1]) {
+// 		longestChain[0] = j;
+// 		longestChain[1] = length;
+// 	}
+// }
+// console.timeEnd('Duration');
+// console.log(longestChain[0] + ': ' + longestChain[1]);
+</script>

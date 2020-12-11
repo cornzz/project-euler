@@ -1,0 +1,34 @@
+<script>
+function getTriangleNum(n) {
+	let ret;
+	for (ret = 0; n > 0; n--) {
+		ret += n;
+	}
+	return ret;
+}
+
+function getNumOfDivisors(x) {
+	let ret = 2;
+	let sqrtX = Math.sqrt(x);
+	for (let i = 2; i <= sqrtX; i++) {
+		if (!(x % i)) {
+			if (i === sqrtX) {
+				ret++;
+			} else {
+				ret += 2;
+			}
+		}
+	}
+	return ret;
+}
+
+let i = 1;
+console.time('Duration');
+while (getNumOfDivisors(getTriangleNum(i)) < 500) {
+	i++;
+}
+console.timeEnd('Duration');
+
+console.log(i + '. triangle number: ' + getTriangleNum(i));
+
+</script>

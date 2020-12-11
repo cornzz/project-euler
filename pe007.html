@@ -1,0 +1,22 @@
+<script>
+let primeList = [2, 3, 5, 7, 11, 13];
+console.time('Duration');
+
+for (let x = 15; primeList.length < 10001; x+=2) {
+	let prime = true;
+	let sqrtx = Math.floor(Math.sqrt(x));
+	
+	for (var y = 0; primeList[y] <= sqrtx; y++) {
+		if (!(x % primeList[y])) {
+			prime = false;
+			break;
+		}
+	}
+	if (prime) {
+		primeList.push(x);
+	}
+}
+
+console.log(primeList.length + '. prime: ' + primeList[primeList.length - 1]);
+console.timeEnd('Duration');
+</script>

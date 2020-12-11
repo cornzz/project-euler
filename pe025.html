@@ -1,0 +1,9 @@
+<script>
+let nums = [1n, 1n];
+
+while (nums[nums.length - 1].toString().length < 1000) {
+	nums.push(nums[nums.length - 2] + nums[nums.length - 1]);
+}
+
+console.log(nums.length);
+</script>
